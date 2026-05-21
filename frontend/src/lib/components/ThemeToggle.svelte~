@@ -1,0 +1,89 @@
+<script lang="ts">
+  import Icon from '@iconify/svelte';
+
+  import { theme } from '$lib/stores/theme.svelte';
+
+  const isDark = $derived(
+    theme.current === 'dark'
+  );
+</script>
+
+<button
+  type="button"
+  aria-label="Toggle theme"
+  onclick={() => theme.toggle()}
+  class="
+  group
+  relative
+  flex
+  h-12
+  w-24
+  items-center
+  rounded-full
+  border
+  border-surface-500/20
+  bg-surface-500/10
+  backdrop-blur-md
+  transition-all
+  duration-300
+  hover:bg-surface-500/15
+  "
+  >
+  <!-- Track Icons -->
+  <div
+    class="
+	   absolute
+	   inset-0
+	   flex
+	   items-center
+	   justify-between
+	   px-4
+	   text-surface-500
+	   "
+	   >
+	   <Icon
+	     icon="ph:sun"
+	     class="
+		    text-lg
+		    transition-opacity
+		    duration-300
+		    {isDark ? 'opacity-40' : 'opacity-100'}
+		    "
+	     />
+
+	   <Icon
+	     icon="ph:moon"
+	     class="
+		    text-lg
+		    transition-opacity
+		    duration-300
+		    {isDark ? 'opacity-100' : 'opacity-40'}
+		    "
+	     />
+</div>
+
+<!-- Sliding Knob -->
+<div
+  class={`
+  absolute
+  left-1
+  flex
+  h-10
+  w-10
+  items-center
+  justify-center
+  rounded-full
+  bg-surface-500
+  text-primary-500
+  shadow-lg
+  transition-all
+  duration-300
+  ${isDark ? 'translate-x-12' : 'translate-x-0'}
+  `}
+  >
+  <Icon
+    icon={isDark ? "ph:moon" : "ph:sun"}
+    class="text-xl"
+    />
+</div>
+</button>

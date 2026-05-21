@@ -1,0 +1,93 @@
+@layer base {
+  :root[data-theme='portfolio'] {
+
+    /* ================================== */
+    /* COLOR SYSTEM (2-TOKEN MODEL)       */
+    /* ================================== */
+
+    /* RAW RGB */
+    --color-primary: 73 81 111;
+    --color-secondary: 116 118 132;
+    --color-tertiary: 120 116 145;
+
+    --color-surface-light: 250 249 246;
+    --color-surface-dark: 29 28 22;
+
+    /* SOLID COLORS  */
+    --color-primary-solid: rgb(var(--color-primary));
+    --color-secondary-solid: rgb(var(--color-secondary));
+    --color-tertiary-solid: rgb(var(--color-tertiary));
+
+    --color-surface-light-solid: rgb(var(--color-surface-light));
+    --color-surface-dark-solid: rgb(var(--color-surface-dark));
+
+    /* SEMANTIC TOKENS */
+    --color-bg: var(--color-surface-light-solid);
+    --color-text: var(--color-surface-dark-solid);
+    --color-text-inverse: var(--color-surface-light-solid);
+
+    --color-border: rgb(var(--color-surface-dark) / 0.12);
+
+    /* ================================== */
+    /* TYPOGRAPHY SYSTEM                  */
+    /* ================================== */
+
+    --font-family-display: 'Abril Fatface', serif;
+    --font-family-body: 'Martian Mono', monospace;
+
+    --font-weight-regular: 400;
+
+    --line-height-base: 1.5;
+    --line-height-heading: 1.15;
+
+    --letter-spacing-tight: -0.01em;
+    --letter-spacing-wide: 0.05em;
+
+    /* TYPE SCALE */
+    --text-h1: 40px;
+    --text-h2: 32px;
+    --text-h3: 26px;
+    --text-h4: 22px;
+
+    --text-body-lg: 18px;
+    --text-body: 16px;
+    --text-body-sm: 14px;
+    --text-caption: 12px;
+
+    --leading-h1: 44px;
+    --leading-h2: 36px;
+    --leading-h3: 30px;
+    --leading-h4: 26px;
+
+    --leading-body-lg: 28px;
+    --leading-body: 24px;
+    --leading-body-sm: 20px;
+    --leading-caption: 16px;
+
+    /* UI TEXT */
+    --text-button: 16px;
+    --leading-button: 20px;
+
+    --text-button-sm: 14px;
+    --leading-button-sm: 18px;
+
+    /* ================================== */
+    /* SPACING + SHAPE                   */
+    /* ================================== */
+
+    --space-unit: 0.25rem;
+
+    --radius-base: 0.375rem;
+    --radius-container: 0.75rem;
+
+    --border-width: 1px;
+    --ring-width: 1px;
+
+    /* ================================== */
+    /* BASE ELEMENTS                     */
+    /* ================================== */
+
+    --body-bg: var(--color-bg);
+    --body-text: var(--color-text);
+  }
+}

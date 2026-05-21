@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton-svelte';
+
+@import './tokens.css';
+@import './themes.css';
+@import './typography.css';
+
+@theme {
+
+  /* =========================================================
+     SEMANTIC TOKENS
+     ========================================================= */
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-overlay: var(--overlay);
+  --color-overlay-foreground: var(--overlay-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-muted: var(--muted);
+
+  --color-border: var(--border);
+
+  /* =========================================================
+     COLORS
+     ========================================================= */
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+
+  --color-secondary-500: var(--color-secondary-500);
+  --color-tertiary-500: var(--color-tertiary-500);
+
+  --color-success-500: var(--color-success-500);
+  --color-warning-500: var(--color-warning-500);
+  --color-error-500: var(--color-error-500);
+
+  --color-surface-50: var(--color-surface-50);
+  --color-surface-100: var(--color-surface-100);
+  --color-surface-200: var(--color-surface-200);
+  --color-surface-500: var(--color-surface-500);
+
+  /* =========================================================
+     TYPOGRAPHY
+     ========================================================= */
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --text-display-xl: var(--text-display-xl-size);
+  --text-display-xl--line-height: var(--text-display-xl-line);
+  --text-display-xl--letter-spacing: var(--text-display-xl-tracking);
+  --text-display-xl--font-weight: var(--text-display-xl-weight);
+
+  --text-display-lg: var(--text-display-lg-size);
+  --text-display-lg--line-height: var(--text-display-lg-line);
+  --text-display-lg--letter-spacing: var(--text-display-lg-tracking);
+
+  --text-h1: var(--text-h1-size);
+  --text-h1--line-height: var(--text-h1-line);
+  --text-h1--letter-spacing: var(--text-h1-tracking);
+
+  --text-h2: var(--text-h2-size);
+  --text-h2--line-height: var(--text-h2-line);
+  --text-h2--letter-spacing: var(--text-h2-tracking);
+
+  --text-h3: var(--text-h3-size);
+  --text-h3--line-height: var(--text-h3-line);
+  --text-h3--letter-spacing: var(--text-h3-tracking);
+
+  --text-body-lg: var(--text-body-lg-size);
+  --text-body-lg--line-height: var(--text-body-lg-line);
+  --text-body-lg--letter-spacing: var(--text-body-lg-tracking);
+
+  --text-body-md: var(--text-body-md-size);
+  --text-body-md--line-height: var(--text-body-md-line);
+  --text-body-md--letter-spacing: var(--text-body-md-tracking);
+
+  --text-label: var(--text-label-size);
+  --text-label--line-height: var(--text-label-line);
+  --text-label--letter-spacing: var(--text-label-tracking);
+
+  /* =========================================================
+     RADII
+     ========================================================= */
+
+  --radius-container: var(--radius-container);
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--body-text-color);
+
+  font-family: var(--font-body);
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}

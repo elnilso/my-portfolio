@@ -1,0 +1,54 @@
+
+<section
+  class="mx-auto max-w-5xl px-[var(--page-padding-x)] py-10"
+>
+  <div
+    class="relative overflow-hidden px-6 py-10 sm:px-10 sm:py-12"
+  >
+    <!-- Ambient Glow -->
+    <div
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="
+             background:
+             radial-gradient(
+             circle at top right,
+             color-mix(
+             in oklab,
+             var(--color-secondary-500) 10%,
+             transparent
+             ),
+             transparent 35%
+             );
+             "
+    ></div>
+
+    <div
+      class="relative flex grid md:grid-cols-2  gap-4 md:flex-row md:items-start"
+    >
+      <!-- Index -->
+      <div class="shrink-0">
+        <p
+          class="text-label leading-none text-foreground/50"
+        >
+          Technical Stack
+        </p>
+      </div>
+
+      <!-- Stack -->
+      <div class="max-w-3xl leading-[1.02] tracking-tight text-foreground">
+        <div class="text-body-small border-b border-foreground/50 p-6 text-foreground">
+	  React / Next.js / Svelte
+	</div>
+	<div class="text-body-small border-b border-foreground/50 p-6 text-foreground">
+	  Python / C / R / Java / Lua
+	</div>
+	<div class="text-body-small border-b border-foreground/50 p-6 text-foreground">
+	  Typescript
+	</div>
+	<div class="text-body-small border-foreground/50 p-6 text-foreground">
+	  Django / PostgreSQL
+	</div>
+      </div>
+    </div>
+  </div>
+</section>

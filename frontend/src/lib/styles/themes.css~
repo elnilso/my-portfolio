@@ -1,0 +1,12 @@
+[data-theme='light'] {
+  --body-background-color: var(--color-surface-500);
+  --body-text-color: var(--color-primary-500);
+}
+
+[data-theme='dark'] {
+
+  /* invert your core palette */
+
+  --body-background-color: var(--color-primary-500);
+  --body-text-color: var(--color-surface-500);
+}

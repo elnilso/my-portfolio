@@ -1,0 +1,59 @@
+[data-theme='light'] {
+
+  /* PAGE */
+
+  --background: var(--color-surface-500);
+  --foreground: var(--color-primary-500);
+
+  /* OVERLAYS */
+
+  --overlay: var(--color-primary-500);
+  --overlay-foreground: var(--color-surface-500);
+
+  /* CARDS */
+
+  --card: var(--color-surface-400);
+  --card-foreground: var(--color-primary-500);
+
+  /* MUTED */
+
+  --muted: var(--color-secondary-500);
+
+  /* BORDERS */
+
+  --border: color-mix(
+    in oklab,
+    var(--color-primary-500) 15%,
+    transparent
+  );
+}
+
+[data-theme='dark'] {
+
+  /* PAGE */
+
+  --background: var(--color-primary-500);
+  --foreground: var(--color-surface-500);
+
+  /* OVERLAYS */
+
+  --overlay: var(--color-surface-500);
+  --overlay-foreground: var(--color-primary-500);
+
+  /* CARDS */
+
+  --card: var(--color-primary-400);
+  --card-foreground: var(--color-surface-500);
+
+  /* MUTED */
+
+  --muted: var(--color-secondary-400);
+
+  /* BORDERS */
+
+  --border: color-mix(
+    in oklab,
+    var(--color-surface-500) 15%,
+    transparent
+  );
+}

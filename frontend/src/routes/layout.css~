@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* @import '../portfolio.css'; */
+@import '../lib/styles/tokens.css';
+@import '../lib/styles/themes.css';
+@import '../lib/styles/typography.css';
+
+@import "@fontsource/abril-fatface";
+@import "@fontsource/martian-mono";
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton-svelte';
+
+/* 
+   h1 {
+   font-family: var(--font-family-display);
+   font-size: var(--text-h1);
+   line-height: var(--leading-h1);
+   letter-spacing: var(--space-unit);
+   }
+
+
+   body {
+   font-family: var(--font-family-body);
+   font-size: var(--text-body-size);
+   line-height: var(--text-body-line);
+   background-color: rgb(var(--color-primary));
+   }
+
+
+   button {
+   font-family: var(--font-family-body);
+   letter-spacing: var(--text-button-tracking);
+   text-transform: uppercase;
+   } */
+
+@theme {
+  /* COLORS */
+  --color-primary: rgb(var(--color-primary));
+  --color-secondary: rgb(var(--color-secondary));
+  --color-surface: rgb(var(--color-surface));
+
+  /* TYPOGRAPHY */
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}

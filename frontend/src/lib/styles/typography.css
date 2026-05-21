@@ -1,0 +1,68 @@
+@import "@fontsource/abril-fatface";
+@import "@fontsource/martian-mono";
+
+:root {
+
+  /* =========================================================
+     FONT FAMILIES
+     ========================================================= */
+
+  --font-display: "Abril Fatface", serif;
+  --font-body: "Martian Mono", monospace;
+
+  /* =========================================================
+     DISPLAY
+     ========================================================= */
+
+  --text-display-xl-size: 6rem;
+  --text-display-xl-line: 0.95;
+  --text-display-xl-tracking: -0.04em;
+  --text-display-xl-weight: 400;
+
+  --text-display-lg-size: 4.5rem;
+  --text-display-lg-line: 0.95;
+  --text-display-lg-tracking: -0.03em;
+  --text-display-lg-weight: 400;
+
+  /* =========================================================
+     HEADINGS
+     ========================================================= */
+
+  --text-h1-size: 3rem;
+  --text-h1-line: 1.05;
+  --text-h1-tracking: -0.02em;
+  --text-h1-weight: 600;
+
+  --text-h2-size: 2rem;
+  --text-h2-line: 1.1;
+  --text-h2-tracking: -0.015em;
+  --text-h2-weight: 600;
+
+  --text-h3-size: 1.6rem;
+  --text-h3-line: 1;
+  --text-h3-tracking: -0.010em;
+  --text-h3-weight: 600;
+
+  /* =========================================================
+     BODY
+     ========================================================= */
+
+  --text-body-lg-size: 1.125rem;
+  --text-body-lg-line: 1.6;
+  --text-body-lg-tracking: 0em;
+  --text-body-lg-weight: 400;
+
+  --text-body-md-size: 1rem;
+  --text-body-md-line: 1.6;
+  --text-body-md-tracking: 0em;
+  --text-body-md-weight: 400;
+
+  /* =========================================================
+     LABELS
+     ========================================================= */
+
+  --text-label-size: 0.75rem;
+  --text-label-line: 1.2;
+  --text-label-tracking: 0.2em;
+  --text-label-weight: 500;
+}

@@ -1,0 +1,15 @@
+<section class="p-8 mt-20 gap-y-20 md:p-28 max-w-7xl mx-auto">
+  <div class="bg-foreground shadow-md shadow-foreground p-12 md:p-20">
+    <h2 class="text-h2 text-background font-display">Philosophy</h2>
+    <p class="text-sm text-background pt-10">
+      My approach is defined by
+      intentionality. I believe every
+      interface element must serve a
+      functional purpose while
+      maintaining an unapologetic
+      aesthetic stance. Minimalism is
+      not the absence of design, but
+      the removal of the unnecessary.
+    </p>
+  </div>
+</section>

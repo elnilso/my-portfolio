@@ -1,0 +1,38 @@
+<script lang="ts">
+ import Me from '$lib/components/buttons/Me.svelte';
+</script>
+
+<section
+  class="
+	 mx-auto
+	 flex
+	 max-w-7xl
+	 items-center
+	 justify-center
+	 gap-4
+	 px-8
+	 py-16
+	 mb-20
+	 md:px-24
+	 "
+>
+  <div class="max-w-3xl">
+    <h2 class="text-h1 font-bold leading-none text-foreground">
+      CONTACT
+    </h2>
+
+    <div class="mt-2 ps-2 space-y-0">
+      <p class="font-display text-body-md md:text-body-lg text-foreground">
+	Feel free to contact me
+      </p>
+
+      <p class="font-display text-body-md md:text-body-lg text-foreground">
+	with questions, offers or ideas.
+      </p>
+    </div>
+  </div>
+
+  <div class="-ml-1 -mt-6 shrink-0">
+    <Me />
+  </div>
+</section>

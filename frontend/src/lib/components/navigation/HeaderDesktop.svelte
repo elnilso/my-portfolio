@@ -1,0 +1,55 @@
+<script lang="ts">
+  import gsap from 'gsap';
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+  
+  import { page } from '$app/stores';
+
+  type Props = {
+    open: boolean;
+    onToggle: () => void;
+  };
+
+  const isActive = (path: string) => $page.url.pathname === path;
+  let { open }: Props = $props();
+</script>
+
+<header class="w-full px-10 py-6 flex items-center justify-between text-foreground">
+  <!-- LEFT: NAME -->
+  <div class="font-display text-h3 tracking-tight">
+    Nils Henner
+  </div>
+
+  <!-- CENTER: NAV -->
+  <nav class="flex items-center gap-10 font-body text-body-sm tracking-wide">
+    <a href="/" class="block group">
+      <div
+	class={`leading-none inline-block pb-1 border-b transition-all duration-400
+	${isActive('/') ? 'border-foreground' : 'border-transparent'}
+	`}
+	>
+	HOME
+      </div>
+    </a>
+
+    <a href="/about" class="block group">
+      <div
+	class={`leading-none inline-block pb-1 border-b transition-all duration-400
+	${isActive('/about') ? 'border-foreground' : 'border-transparent'}
+	`}
+	>
+	ABOUT
+      </div>
+    </a>
+
+    <a href="/projects" class="block group">
+      <div
+	class={`leading-none inline-block pb-1 border-b transition-all duration-400
+	${isActive('/projects') ? 'border-foreground' : 'border-transparent'}
+	`}
+	>
+	PROJECTS
+      </div>
+    </a>
+    <ThemeToggle />
+  </nav>
+</header>

@@ -1,0 +1,36 @@
+<script lang="ts">
+  import SelectedProjects from '$lib/components/SelectedProjects.svelte';
+  import QuoteCard from '$lib/components/cards/QuoteCard.svelte';
+  import HomeHero from '$lib/components/HomeHero.svelte';
+  import TechStack from '$lib/components/cards/TechStack.svelte';
+  import PhilosophyCard from '$lib/components/cards/PhilosophyCard.svelte';
+  import ThanksCTA from '$lib/components/CTAs/ThanksCTA.svelte';
+  import ContactMe from '$lib/components/CTAs/ContactMe.svelte';
+
+  import SphinxModel from '$lib/assets/SphinxModel.png';
+</script>
+
+<section class="overflow-x-hidden">
+  
+  <!-- HERO -->
+  <HomeHero />
+  
+  <!-- PROJECTS -->
+  <SelectedProjects />
+
+  <!-- QUOTE -->
+  <QuoteCard />
+
+  <!-- TECH STACK -->
+  <TechStack />
+
+  <!-- PHILOSOPHY -->
+  <PhilosophyCard />
+
+  <!-- THANK YOU -->
+  <ThanksCTA />
+
+  <!-- CONTACT ME -->
+  <ContactMe />
+  
+</section>

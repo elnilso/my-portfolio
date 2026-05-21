@@ -1,0 +1,106 @@
+:root {
+
+  /* =========================================================
+     SPACING / RADII
+     ========================================================= */
+
+  --spacing: 0.25rem;
+
+  --radius-base: 0.375rem;
+  --radius-container: 0.75rem;
+
+  --default-border-width: 1px;
+  --default-divide-width: 1px;
+  --default-ring-width: 1px;
+
+  --page-padding-x: 1.5rem;
+  --menu-dot-size: 0.5rem;
+
+  /* =========================================================
+     MOTION
+     ========================================================= */
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+
+  /* =========================================================
+     PRIMARY
+     ========================================================= */
+
+  --color-primary-50: oklch(82.94% 0.05 276.37deg);
+  --color-primary-100: oklch(75.67% 0.05 276.03deg);
+  --color-primary-200: oklch(68.15% 0.05 274.35deg);
+  --color-primary-300: oklch(60.24% 0.05 275.19deg);
+  --color-primary-400: oklch(52.25% 0.05 273.33deg);
+  --color-primary-500: oklch(44.05% 0.05 272.66deg);
+  --color-primary-600: oklch(37.98% 0.04 272.11deg);
+  --color-primary-700: oklch(31.8% 0.04 273.72deg);
+  --color-primary-800: oklch(24.89% 0.03 276.07deg);
+  --color-primary-900: oklch(17.91% 0.03 279.96deg);
+  --color-primary-950: oklch(6.07% 0.04 264.05deg);
+
+  /* =========================================================
+     SECONDARY
+     ========================================================= */
+
+  --color-secondary-50: oklch(95.73% 0.02 277deg);
+  --color-secondary-100: oklch(88.41% 0.02 276.36deg);
+  --color-secondary-200: oklch(80.77% 0.02 279.89deg);
+  --color-secondary-300: oklch(73.04% 0.02 276.26deg);
+  --color-secondary-400: oklch(65% 0.02 279.75deg);
+  --color-secondary-500: oklch(56.89% 0.02 279.26deg);
+  --color-secondary-600: oklch(49.9% 0.02 278.7deg);
+  --color-secondary-700: oklch(42.33% 0.02 278.54deg);
+  --color-secondary-800: oklch(34.79% 0.02 278.28deg);
+  --color-secondary-900: oklch(26.42% 0.02 277.78deg);
+  --color-secondary-950: oklch(17.74% 0.03 276.29deg);
+
+  /* =========================================================
+     TERTIARY
+     ========================================================= */
+
+  --color-tertiary-50: oklch(95.52% 0.02 298.68deg);
+  --color-tertiary-100: oklch(88.3% 0.03 297.32deg);
+  --color-tertiary-200: oklch(80.85% 0.03 294.08deg);
+  --color-tertiary-300: oklch(73.1% 0.04 294.69deg);
+  --color-tertiary-400: oklch(65.27% 0.04 292.07deg);
+  --color-tertiary-500: oklch(57.3% 0.04 291.27deg);
+  --color-tertiary-600: oklch(50.25% 0.04 289.63deg);
+  --color-tertiary-700: oklch(42.76% 0.04 291.2deg);
+  --color-tertiary-800: oklch(35.14% 0.04 289.17deg);
+  --color-tertiary-900: oklch(26.9% 0.05 290.31deg);
+  --color-tertiary-950: oklch(18.28% 0.05 286.4deg);
+
+  /* =========================================================
+     SUCCESS
+     ========================================================= */
+
+  --color-success-500: oklch(60.54% 0.05 147.98deg);
+
+  /* =========================================================
+     WARNING
+     ========================================================= */
+
+  --color-warning-500: oklch(65.8% 0.08 73.73deg);
+
+  /* =========================================================
+     ERROR
+     ========================================================= */
+
+  --color-error-500: oklch(55.42% 0.09 13.8deg);
+
+  /* =========================================================
+     SURFACE
+     ========================================================= */
+
+  --color-surface-50: oklch(100% 0 none);
+  --color-surface-100: oklch(99.67% 0 105.51deg);
+  --color-surface-200: oklch(99.35% 0 105.98deg);
+  --color-surface-300: oklch(98.86% 0 67.9deg);
+  --color-surface-400: oklch(98.53% 0 84.4deg);
+  --color-surface-500: oklch(98.21% 0 91.27deg);
+}
