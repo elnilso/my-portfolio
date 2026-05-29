@@ -1,0 +1,157 @@
+<script lang="ts">
+ import Icon from '@iconify/svelte';
+ import * as m from '$paraglide/messages.js';
+
+ const links = [
+   {
+     title: 'GitHub',
+     href: 'https://github.com',
+     icon: 'ph:github-logo'
+   },
+   {
+     title: 'LinkedIn',
+     href: 'https://linkedin.com',
+     icon: 'ph:linkedin-logo'
+   },
+   {
+     title: 'ReadCV',
+     href: 'https://read.cv',
+     icon: 'ph:file-text'
+   }
+ ];
+</script>
+
+<section
+  class="relative mx-auto max-w-3xl px-[var(--page-padding-x)] py-24 sm:py-32"
+>
+
+  <!-- Card -->
+  <div
+    class="relative overflow-hidden border border-border bg-foreground/90 px-8 py-14 shadow-2xl shadow-foreground/8 sm:px-14 sm:py-20 lg:px-20"
+  >
+    <!-- Soft Texture Glow -->
+    <div
+      class="pointer-events-none absolute inset-0 opacity-60"
+      style="
+             background:
+             radial-gradient(
+             circle at top left,
+             color-mix(
+             in oklab,
+             var(--color-tertiary-500) 10%,
+             transparent
+             ),
+             transparent 35%
+             ),
+             radial-gradient(
+             circle at bottom right,
+             color-mix(
+             in oklab,
+             var(--color-secondary-500) 8%,
+             transparent
+             ),
+             transparent 40%
+             );
+	     "
+    ></div>
+
+    <!-- Content -->
+    <div class="relative">
+      <!-- Heading -->
+      <div class="mx-auto max-w-4xl text-center">
+        <h2
+          class="font-display leading-[0.95] tracking-tight text-background text-[3rem]"
+        >
+          Available for projects
+        </h2>
+
+        <div
+          class="mt-6 flex items-center justify-center gap-4"
+        >
+          <div
+            class="h-px w-10"
+            style="
+		   background:
+                   linear-gradient(
+                   90deg,
+                   transparent,
+                   color-mix(
+                   in oklab,
+                   var(--background) 30%,
+                   transparent
+                   )
+                   );
+		   "
+          ></div>
+
+          <p
+            class="text-[0.68rem] uppercase tracking-[0.24em] text-background/45"
+          >
+            Current Status: Open for 2026
+          </p>
+
+          <div
+            class="h-px w-10"
+            style="
+		   background:
+                   linear-gradient(
+                   90deg,
+                   color-mix(
+                   in oklab,
+                   var(--background) 30%,
+                   transparent
+                   ),
+                   transparent
+                   );
+		   "
+          ></div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div
+        class="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-6"
+      >
+        {#each links as link}
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            class="group relative inline-flex items-center gap-3 overflow-hidden pb-2 text-background/72 transition-all duration-[var(--duration-normal)] hover:text-background"
+          >
+            <!-- Icon -->
+            <Icon
+              icon={link.icon}
+              width="18"
+              class="transition-transform duration-300 group-hover:-translate-y-0.5"
+            />
+
+            <!-- Text -->
+            <span
+              class="text-[0.72rem] font-medium uppercase tracking-[0.18em]"
+            >
+              {link.title}
+            </span>
+
+            <!-- Underline -->
+            <div
+              class="absolute bottom-0 left-0 h-px w-full origin-left scale-x-100 transition-transform duration-500 group-hover:scale-x-[1.15]"
+              style="
+                     background:
+                     linear-gradient(
+                     90deg,
+                     var(--background),
+                     color-mix(
+                     in oklab,
+                     var(--background) 30%,
+                     transparent
+                     )
+                     );
+		     "
+            ></div>
+          </a>
+        {/each}
+      </div>
+    </div>
+  </div>
+</section>

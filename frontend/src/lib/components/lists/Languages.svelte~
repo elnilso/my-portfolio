@@ -1,0 +1,151 @@
+<script lang="ts">
+ type Language = {
+   title: string;
+   order: number;
+   level: string;
+   bg: 'foreground' | 'muted' | 'foreground/25';
+ };
+
+ const languages: Language[] = [
+   { title: 'German',  order: 1, level: 'Native',    bg: 'foreground'    },
+   { title: 'English', order: 2, level: 'Fluent',     bg: 'muted'         },
+   { title: 'Spanish', order: 3, level: 'Proficient', bg: 'foreground/25' },
+ ];
+
+ /**
+  * Derive card CSS values from the bg token.
+  *
+  * bg: 'foreground' | 'muted'
+  *   → filled / heavy card; text uses --background so it always contrasts:
+  *       light mode: background=cream    on foreground=dark  ✓
+  *       dark  mode: background=dark     on foreground=cream ✓
+  *
+  * bg: 'foreground/25'
+  *   → light tinted card; text uses --foreground:
+  *       light mode: foreground=dark     on 25%-dark tint    ✓
+  *       dark  mode: foreground=cream    on 25%-cream tint   ✓
+  *
+  * Using inline styles instead of dynamic Tailwind classes (bg-{token})
+  * because Tailwind's purge pass strips any class it can't statically detect.
+  */
+ function cardVars(bg: Language['bg']) {
+   const onDark = {
+     text:  'var(--background)',
+     muted: 'color-mix(in oklab, var(--background) 50%, transparent)',
+   };
+   const onLight = {
+     text:  'var(--foreground)',
+     muted: 'color-mix(in oklab, var(--foreground) 45%, transparent)',
+   };
+
+   if (bg === 'foreground') {
+     return { background: 'var(--foreground)', ...onDark };
+   }
+   if (bg === 'muted') {
+     return { background: 'var(--muted)', ...onDark };
+   }
+   // foreground/25 — subtle tint, light card
+   return {
+     background: 'color-mix(in oklab, var(--foreground) 25%, transparent)',
+     ...onLight,
+   };
+ }
+
+ function padOrder(n: number) {
+   return n.toString().padStart(2, '0');
+ }
+</script>
+
+<section class="relative mx-auto max-w-7xl py-24 px-[var(--page-padding-x)]">
+
+  <!-- ── Section header ───────────────────────────────────────── -->
+  <div class="relative mb-12 flex items-end justify-between gap-4 border-b border-border pb-6">
+    <div>
+      <p class="mb-3 text-[0.7rem] uppercase tracking-[0.22em] text-foreground/45">
+        Language proficiency
+      </p>
+      <h2 class="text-h2 font-display leading-none text-foreground">
+        Languages
+      </h2>
+    </div>
+  </div>
+
+  <!-- ── Card grid ─────────────────────────────────────────────
+       1 col mobile → 2 col tablet → 3 col desktop.
+       With 3 languages the last row on 2-col shows one card + empty
+       space, which deliberately echoes the asymmetry in the Figma.
+       ──────────────────────────────────────────────────────────── -->
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+
+    {#each languages as lang}
+      {@const { background, text, muted } = cardVars(lang.bg)}
+
+      <article
+        class="
+               group relative overflow-hidden border border-border
+               transition-all duration-[var(--duration-normal)]
+               ease-[var(--ease-standard)]
+               hover:-translate-y-1 hover:border-transparent
+               "
+        style="background: {background};"
+      >
+
+        <!-- Ambient radial glow on hover -->
+        <div
+          class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style="
+		 background: radial-gradient(
+		 circle at top right,
+		 color-mix(in oklab, var(--color-tertiary-500) 14%, transparent),
+		 transparent 60%
+		 );
+		 "
+        ></div>
+
+        <!-- Card body -->
+        <div class="relative flex min-h-[220px] flex-col justify-between p-6">
+
+          <!-- ── Top: order number ──────────────────────────── -->
+          <p
+            class="font-body text-[0.65rem] tracking-[0.2em]"
+            style="color: {muted};"
+          >
+            {padOrder(lang.order)}
+          </p>
+
+          <!-- ── Bottom: language + level ───────────────────── -->
+          <div>
+            <h3
+              class="font-body text-body-lg uppercase"
+              style="color: {text};"
+            >
+              {lang.title}
+            </h3>
+            <p
+              class="font-body text-label"
+              style="color: {muted};"
+            >
+              {lang.level}
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Gradient accent line that slides in on hover -->
+        <div
+          class="absolute bottom-0 left-0 h-px w-0 transition-all duration-700 group-hover:w-full"
+          style="
+		 background: linear-gradient(
+		 90deg,
+		 var(--color-tertiary-500),
+		 var(--color-secondary-500)
+		 );
+		 "
+        ></div>
+
+      </article>
+    {/each}
+
+  </div>
+
+</section>

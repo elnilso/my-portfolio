@@ -1,0 +1,44 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  
+  "example_message": "Guten Tag {username}",
+
+  "link1": "Startseite",
+  "link2": "Über mich",
+  "link3": "Projekte",
+  "link4": "Impressum",
+  "link5": "Datenschutz",
+  
+  "hero_subtitle1": "Programmierer",
+  "hero_subtitle2": "Designer",
+  "hero_introduction": "Wir gestalten digitale Umgebungen, in denen leistungsfähige Technik auf sorgfältiges redaktionelles Design trifft. An der Schnittstelle von Code und Ästhetik.",
+  "hero_scroll": "Scrollen Sie weiter",
+
+  "sel_projects_subtitle": "Ausgewählte Arbeit",
+  "sel_projects_title": "Ausgewählte Projekte",
+  "sel_more": "Mehr erfahren",
+
+  "quote": "Design ist nicht nur das, wie etwas aussieht und sich anfühlt. Design ist vielmehr, wie es innerhalb des digitalen Ökosystems funktioniert.",
+
+  "philosophy_title": "Philosophie",
+  "philosophy_text": "Mein Ansatz ist von Intentionalität geprägt. Ich bin der Überzeugung, dass jedes Element einer Benutzeroberfläche einen funktionalen Zweck erfüllen und gleichzeitig eine kompromisslose ästhetische Haltung bewahren muss. Minimalismus bedeutet nicht das Fehlen von Design, sondern das Weglassen des Überflüssigen.",
+
+  "thanks_title": "Vielen Dank für Ihren Besuch",
+  "thanks_text": "Ich freue mich darauf, Ihre Ideen umzusetzen und gemeinsam an Projekten zu arbeiten!",
+
+  "motto": "Design mit Funktionalität",
+
+  "footer_header1": "Links",
+  "footer_header2": "Rechtliches",
+
+  "about_sub1": "Über",
+  "about_sub2": "Lebenslauf / Profil",
+  "about_sub3": "Digitaler Ingenieur",
+  
+  "about_title1": "Systeme",
+  "about_title2": "entwickeln," ,
+  "about_title3": "die human" ,
+  "about_title4": "wirken.",
+  
+  "about_text": "Ich entwerfe und entwickle digitale Erlebnisse, bei denen Leistung, Interaktion und visuelle Klarheit Hand in Hand gehen. Meine Arbeit schlägt eine Brücke zwischen Softwarearchitektur und redaktioneller Ästhetik – so entstehen Produkte, die technisch ausgereift und zugleich emotional ansprechend sind."
+}

@@ -1,0 +1,9 @@
+export type HeaderTheme = 'light' | 'dark';
+export type SectionThemeHint = HeaderTheme | 'inverse';
+
+let current = $state<HeaderTheme | null>(null); // null = follow page theme
+
+export const headerTheme = {
+  get current() { return current; },
+  set(v: HeaderTheme | null) { current = v; },
+};

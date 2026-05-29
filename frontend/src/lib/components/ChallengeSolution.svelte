@@ -1,0 +1,242 @@
+<script lang="ts">
+  import Icon from '@iconify/svelte';
+  import { headerSection } from '$lib/actions/headerSection';
+
+  type Challenge = {
+    title: string;
+    description: string;
+  };
+
+  type Solution = {
+    title: string;
+    description: string;
+  };
+
+  let {
+    eyebrow = 'Project Foundation',
+    title = 'Why this project exists.',
+    intro = 'Every meaningful system begins with friction. This section outlines the underlying challenges that shaped the project and the strategic solutions developed in response.',
+    challenges = [],
+    solutions = []
+  }: {
+    eyebrow?: string;
+    title?: string;
+    intro?: string;
+    challenges?: Challenge[];
+    solutions?: Solution[];
+  } = $props();
+</script>
+
+<section
+  class="relative mx-auto max-w-7xl overflow-hidden px-[var(--page-padding-x)] py-16 sm:py-24 lg:py-32"
+  >
+
+  <!-- Header -->
+  <div
+    class="relative mb-12 sm:mb-16 lg:mb-20 grid gap-6 lg:gap-10 border-b border-border pb-8 sm:pb-10 lg:grid-cols-[1fr_0.9fr]"
+    >
+    <div>
+      <p class="mb-3 sm:mb-5 text-[0.65rem] sm:text-[0.72rem] uppercase tracking-[0.24em] text-foreground/45">
+	{eyebrow}
+      </p>
+
+      <h2
+	class="font-display leading-[0.95] tracking-tight text-foreground"
+	style="
+               font-size: clamp(2rem, 6vw, 5.5rem);
+	       "
+	>
+	{title}
+      </h2>
+    </div>
+
+    <div class="flex items-start lg:items-end">
+      <p class="max-w-xl text-sm sm:text-base leading-relaxed text-foreground/70 mt-4 lg:mt-0">
+	{intro}
+      </p>
+    </div>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="relative grid gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-2">
+    <!-- Challenges -->
+    <article
+      class="group relative overflow-hidden rounded-[calc(var(--radius-container)*1.5)] border border-border bg-card/50 backdrop-blur-sm"
+      >
+      <!-- Top Accent -->
+      <div
+        class="absolute left-0 top-0 h-px w-full"
+        style="
+               background:
+               linear-gradient(
+               90deg,
+               var(--color-error-500),
+               transparent 70%
+               );
+               "
+	/>
+
+      <div class="p-6 sm:p-8 lg:p-10">
+        <!-- Header -->
+        <div class="mb-6 sm:mb-8 lg:mb-10 flex items-start justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-full border border-border bg-background/60">
+              <Icon
+                icon="ph:warning-circle"
+                class="h-6 w-6 text-foreground"
+		/>
+            </div>
+
+            <div>
+              <p
+                class="text-[0.7rem] uppercase tracking-[0.22em] text-foreground/45"
+		>
+                Challenges
+              </p>
+
+              <h3
+                class="mt-1 font-display text-h3 text-foreground"
+		>
+                The Problem
+              </h3>
+            </div>
+          </div>
+
+          <p class="hidden md:block text-body-sm tracking-[0.18em] text-foreground/35">
+	    [0{challenges.length}]
+	  </p>
+        </div>
+
+        <!-- Challenge List -->
+        <div class="space-y-6 sm:space-y-8">
+          {#each challenges as challenge, i}
+            <div
+              class="border-b border-border pb-8 last:border-none last:pb-0"
+              >
+              <div class="mb-3 sm:mb-4 flex items-start gap-3 sm:gap-4">
+                <div
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-body-sm text-foreground/50"
+                  >
+                  0{i + 1}
+                </div>
+
+                <div>
+                  <h4
+                    class="text-body-lg uppercase tracking-[0.08em] text-foreground"
+                    >
+                    {challenge.title}
+                  </h4>
+
+                  <p
+                    class="mt-3 max-w-xl text-body-sm leading-relaxed text-foreground/70"
+                    >
+                    {challenge.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    </article>
+
+    <!-- Solutions -->
+    <article
+      use:headerSection={"inverse"}
+      class="group relative overflow-hidden rounded-[calc(var(--radius-container)*1.5)] border border-border bg-foreground text-background"
+      >
+      <!-- Glow -->
+      <div
+        class="pointer-events-none absolute inset-0 opacity-20"
+        style="
+               background:
+               radial-gradient(
+               circle at top right,
+               color-mix(
+               in oklab,
+               var(--color-tertiary-500) 20%,
+               transparent
+               ),
+               transparent 40%
+               );
+               "
+	/>
+
+      <!-- Top Accent -->
+      <div
+        class="absolute left-0 top-0 h-px w-full"
+        style="
+               background:
+               linear-gradient(
+               90deg,
+               var(--color-secondary-500),
+               transparent 70%
+               );
+               "
+	/>
+
+      <div class="relative p-8 sm:p-10">
+        <!-- Header -->
+        <div class="mb-6 sm:mb-8 lg:mb-10 flex items-start justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-full border border-background/15 bg-background/10">
+              <Icon
+                icon="ph:sparkle"
+                class="h-6 w-6 text-background"
+		/>
+            </div>
+
+            <div>
+              <p
+                class="text-[0.7rem] uppercase tracking-[0.22em] text-background/45"
+		>
+                Solution
+              </p>
+
+              <h3
+                class="mt-1 font-display text-h3 text-background"
+		>
+                The Response
+              </h3>
+            </div>
+          </div>
+
+          <p class="hidden md:block text-body-sm tracking-[0.18em] text-background/35">
+	    [0{solutions.length}]
+	  </p>
+        </div>
+
+        <!-- Solution List -->
+        <div class="space-y-8">
+          {#each solutions as solution, i}
+            <div
+              class="border-b border-background/10 pb-8 last:border-none last:pb-0"
+              >
+              <div class="mb-4 flex items-start gap-4">
+                <div
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-background/15 text-body-small text-background/60"
+                  >
+                  0{i + 1}
+                </div>
+
+                <div>
+                  <h4
+                    class="text-body-lg uppercase tracking-[0.08em] text-background"
+                    >
+                    {solution.title}
+                  </h4>
+
+                  <p
+                    class="mt-3 max-w-xl text-body-small leading-relaxed text-background/72"
+                    >
+                    {solution.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

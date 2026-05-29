@@ -1,0 +1,75 @@
+<script lang="ts">
+ type Step = {
+   title: string;
+   description: string;
+   // media: File;
+   meta?: string;
+ };
+
+ let {
+   eyebrow = 'How it works',
+   title = 'From Video to 3D-model in 5 Steps',
+   steps = []
+   
+ } : {
+   eyebrow?: string;
+   title?: string;
+   intro?: string;
+   steps?: Step[];
+ } = $props();
+ 
+</script>
+
+<section class="relative mx-auto max-w-7xl overflow-hidden py-24 px-[var(--page-padding-x)] sm:py-32">
+
+  <!-- HEADER -->
+  <div class="relative mb-20 grid gap-10 border-b border-border pb-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div>
+      <p class="mb-5 uppercase text-[0.72rem] tracking-[0.24em] text-foreground/45">
+	{eyebrow}
+      </p>
+      <h2 class="max-w-5xl font-display leading-[0.95] tracking-tight text-foreground"
+	  style="
+		 font-size:
+		 clamp(3rem, 7vw, 6rem);
+		 "
+      >
+	{title}
+      </h2>
+    </div>
+  </div>
+
+  <div class="relative grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+    {#each steps as step, i}
+      <article class="group relative overflow-hidden rounded-[calc(var(--radius-container)*1.5)]">
+	<div class="relative flex h-full flex-col p-7 sm:p-8">
+	  <!-- META -->
+	  <div class="mb-8 flex items-start justify-between gap-4">
+	    <!-- NUMBER -->
+	    <div class="text-display-xl tracking-[0.18em] text-foreground">
+	      {i + 1}
+	    </div>
+	    <div>
+	      <h2 class="text-h2 font-display tracking-[0.08em] text-foreground">
+		{step.title}
+	      </h2>
+	    </div>
+	  </div>
+
+	  <!-- CONTENT -->
+	  <div class="flex flex-1 flex-col">
+	    <div>
+	      <p class="mt-2 text-body-sm leading-relaxed text-foreground/70">
+		{step.description}
+	      </p>
+	    </div>
+
+	    
+	    
+	  </div>
+	</div>
+      </article>
+    {/each}
+  </div>
+  
+</section>

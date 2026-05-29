@@ -1,0 +1,43 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "example_message": "Hello world {username}",
+
+  "link1": "Home" ,
+  "link2": "About me" ,
+  "link3": "Projects",
+  "link4": "Imprint",
+  "link5": "Data policy",
+  
+  "hero_subtitle1": "Programmer",
+  "hero_subtitle2": "Designer",
+  "hero_introduction": "Architecting digital environments where high-performance engineering meets meticulous editorial design. Based in the intersection of code and aesthetics.",
+  "hero_scroll": "Scroll to explore",
+
+  "sel_projects_subtitle": "Selected Work",
+  "sel_projects_title": "Selected Projects",
+  "sel_more": "See more",
+
+  "quote": "Design is not just what it looks like and feels like. Design is how it works within the digital ecosystem.",
+
+  "philosophy_title": "Philosophy",
+  "philosophy_text": "My approach is defined by intentionality. I believe every interface element must serve a functional purpose while maintaining an unapologetic aesthetic stance. Minimalism is not the absence of design, but the removal of the unnecessary.",
+  
+  "thanks_title": "Thanks for visiting",
+  "thanks_text": "I am excited for the opportunity to realize your ideas and work on projects together!",
+
+  "motto": "Design with functionality",
+
+  "footer_header1": "Links",
+  "footer_header2": "Legal",
+
+  "about_sub1": "About" ,
+  "about_sub2": "CV / Profile",
+  "about_sub3": "Digital Engineer",
+  
+  "about_title1": "Building",
+  "about_title2": "systems",
+  "about_title3": "that feel",
+  "about_title4": "human.",
+  
+  "about_text": "I design and engineer digital experiences where performance, interaction, and visual clarity coexist. My work bridges software architecture and editorial aesthetics - creating products that are technically rigorous yet emotionally engaging."
+}

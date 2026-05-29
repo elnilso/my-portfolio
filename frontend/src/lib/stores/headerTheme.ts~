@@ -1,0 +1,4 @@
+import { writable } from 'svelte/store';
+
+export type HeaderTheme = 'light' | 'dark';
+export const headerTheme = writable<HeaderTheme>('light');

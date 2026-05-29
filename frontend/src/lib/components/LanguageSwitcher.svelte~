@@ -1,0 +1,258 @@
+<script lang="ts">
+  import Icon from '@iconify/svelte';
+  import { getLocale, setLocale, locales } from '$paraglide/runtime.js';
+  
+  // ── Language metadata ──────────────────────────────────────────────
+  const LANG_META: Record<string, { label: string; native: string }> = {
+    en: { label: 'English', native: 'EN' },
+    de: { label: 'Deutsch', native: 'DE' },
+    // fr: { label: 'Français', native: 'FR' },
+    // es: { label: 'Español', native: 'ES' },
+    // extend as needed
+  };
+
+  // ── State ──────────────────────────────────────────────────────────
+  let open = $state(false);
+  let buttonEl = $state<HTMLButtonElement | null>(null);
+  let dropdownEl = $state<HTMLDivElement | null>(null);
+
+  const current = $derived(getLocale());
+  const currentMeta = $derived(LANG_META[current] ?? { label: current.toUpperCase(), native: current.toUpperCase() });
+
+  const others = $derived(
+    locales.filter((tag) => tag !== current)
+  );
+
+  // ── Props ──────────────────────────────────────────────────────────
+  type Props = { direction?: 'down' | 'up' };
+  let { direction = 'down' }: Props = $props();
+
+  // ── Click-outside handler ──────────────────────────────────────────
+  function handleClickOutside(e: MouseEvent) {
+    if (
+      open &&
+	buttonEl &&
+	dropdownEl &&
+	!buttonEl.contains(e.target as Node) &&
+	!dropdownEl.contains(e.target as Node)
+    ) {
+      open = false;
+    }
+  }
+
+  function handleKeydown(e: KeyboardEvent) {
+    if (e.key === 'Escape') open = false;
+  }
+
+  function switchLocale(tag: string) {
+    setLocale(tag as any);
+    open = false;
+  }
+</script>
+
+<svelte:window onclick={handleClickOutside} onkeydown={handleKeydown} />
+
+<div class="relative">
+  <!-- Trigger Button -->
+  <button
+    bind:this={buttonEl}
+    type="button"
+    aria-label="Switch language"
+    aria-expanded={open}
+    aria-haspopup="listbox"
+    onclick={() => (open = !open)}
+    class="
+    group
+    relative
+    flex
+    h-12
+    items-center
+    gap-2.5
+    rounded-full
+    border
+    border-surface-500/20
+    bg-foreground/10
+    px-4
+    backdrop-blur-md
+    transition-all
+    duration-300
+    hover:bg-foreground/15
+    {open ? 'bg-foreground/15' : ''}
+    "
+    >
+    <!-- Globe icon -->
+    <Icon
+      icon="ph:globe"
+      class="
+             text-lg
+             text-foreground/70
+             transition-all
+             duration-300
+             group-hover:text-foreground
+             {open ? 'text-foreground rotate-12' : ''}
+	     "
+      />
+
+    <!-- Current locale label -->
+    <span
+      class="
+             font-mono
+             text-[0.7rem]
+             font-semibold
+             tracking-[0.2em]
+             text-foreground/80
+             transition-colors
+             duration-300
+             group-hover:text-foreground
+             {open ? 'text-foreground' : ''}
+	     "
+      >
+      {currentMeta.native}
+    </span>
+
+    <!-- Chevron -->
+    <Icon
+      icon="ph:caret-down"
+      class="
+             text-sm
+             text-foreground/50
+             transition-all
+             duration-300
+             {open ? '-rotate-180 text-foreground/80' : ''}
+	     "
+      />
+  </button>
+
+  <!-- Dropdown Panel -->
+  {#if open}
+    <div
+      bind:this={dropdownEl}
+      role="listbox"
+      aria-label="Select language"
+      class="
+             absolute
+             right-0
+             {direction === 'up'
+	     ? 'bottom-[calc(100%+0.5rem)]'
+	     : 'top-[calc(100%+0.5rem)]'}
+             z-50
+             min-w-[10rem]
+             overflow-hidden
+             rounded-2xl
+             border
+             border-surface-500/20
+             bg-background/80
+             shadow-2xl
+             shadow-black/30
+             backdrop-blur-xl
+	     "
+      style="animation: {direction === 'up' ? 'dropUp' : 'dropIn'} 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;"
+      >
+      <!-- Header -->
+      <div
+        class="
+               border-b
+               border-surface-500/15
+               px-4
+               py-2.5
+               "
+	>
+        <p class="font-mono text-label tracking-[0.25em] text-foreground/40 uppercase">
+          Language
+        </p>
+      </div>
+
+      <!-- All language options including current -->
+      <ul class="p-1.5">
+        {#each locales as tag (tag)}
+          {@const meta = LANG_META[tag] ?? { label: tag.toUpperCase(), native: tag.toUpperCase() }}
+        {@const isActive = tag === current}
+        <li>
+          <button
+            type="button"
+            role="option"
+            aria-selected={isActive}
+            data-sveltekit-reload
+            onclick={() => switchLocale(tag)}
+            disabled={isActive}
+            class="
+            group/opt
+            flex
+            w-full
+            items-center
+            gap-3
+            rounded-xl
+            px-3
+            py-2.5
+            text-left
+            transition-all
+            duration-150
+            {isActive
+            ? 'bg-foreground/10 cursor-default'
+            : 'hover:bg-foreground/8 cursor-pointer'}
+            "
+            >
+            <!-- Native code badge -->
+            <span
+              class="
+                     flex
+                     h-8
+                     w-8
+                     flex-shrink-0
+                     items-center
+                     justify-center
+                     rounded-lg
+                     font-mono
+                     text-label
+                     font-bold
+                     tracking-widest
+                     transition-all
+                     duration-150
+                     {isActive
+                     ? 'bg-foreground/20 text-foreground'
+                     : 'bg-foreground/8 text-foreground/50 group-hover/opt:bg-foreground/15 group-hover/opt:text-foreground/80'}
+                     "
+              >
+              {meta.native}
+            </span>
+
+            <!-- Full language name -->
+            <span
+              class="
+                     text-body-small
+                     font-medium
+                     transition-colors
+                     duration-150
+                     {isActive
+                     ? 'text-foreground'
+                     : 'text-foreground/60 group-hover/opt:text-foreground/90'}
+                     "
+              >
+              {meta.label}
+            </span>
+
+            <!-- Active check -->
+            {#if isActive}
+              <Icon
+                icon="ph:check"
+                class="ml-auto text-base text-primary-400"
+                />
+              {/if}
+            </button>
+        </li>
+      {/each}
+    </ul>
+    </div>
+  {/if}
+</div>
+
+<style>
+  @keyframes dropIn {
+    from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes dropUp {
+    from { opacity: 0; transform: translateY(6px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>

@@ -1,0 +1,222 @@
+<script lang="ts">
+ import SphinxModel from '$lib/assets/SphinxModel.png';
+ import ChallengeSolution from '$lib/components/ChallengeSolution.svelte';
+ import KeyFeatures from '$lib/components/KeyFeatures.svelte';
+ import ThreeDViewer from '$lib/components/ThreeDViewer.svelte';
+ import Steps from '$lib/components/lists/Steps.svelte';
+ 
+ import Icon from '@iconify/svelte';
+</script>
+
+<section
+  class="relative mx-auto max-w-7xl overflow-hidden px-[var(--page-padding-x)] pt-16 pb-28"
+>
+
+  <!-- IMAGE -->
+  <div class="mb-10 flex justify-center">
+    <enhanced:img
+      src={SphinxModel}
+      alt="Sphinx"
+      class="w-full max-w-[260px] md:max-w-[420px] drop-shadow-2xl"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- HERO CONTENT -->
+  <div class="mx-auto flex max-w-6xl flex-col items-center text-center">
+
+    <!-- Badge -->
+    <div
+      class="mb-6 rounded-full border border-border bg-background/60 md:px-4 px-2 py-1 text-label md:text-body-md font-medium tracking-wide text-foreground/45 backdrop-blur"
+    >
+      Advanced 3D Model Comparison Platform
+    </div>
+
+    <!-- TITLE ROW -->
+    <div class="flex items-center justify-center gap-5 md:gap-8">
+
+      <!-- LEFT ORB -->
+      <div class="relative flex h-12 w-12 items-center justify-center shrink-0">
+        <!-- Glow -->
+        <div
+          class="absolute h-20 w-20 rounded-full blur-3xl opacity-60"
+          style="
+		 background:
+		 radial-gradient(
+		 circle,
+		 color-mix(
+                 in oklab,
+                 var(--color-tertiary-500) 22%,
+                 transparent
+		 ),
+		 transparent 70%
+		 );
+		 "
+        ></div>
+
+        <!-- Orb -->
+        <div
+          class="relative h-8 w-8 md:h-12 md:w-12 rounded-full border border-border bg-foreground shadow-2xl shadow-foreground/20"
+        ></div>
+      </div>
+
+      <!-- TITLE -->
+      <h1
+        class="font-display font-semibold leading-[0.9] tracking-tight text-foreground text-h2 md:text-display-xl p-4 uppercase"
+      >
+        3D<span class="text-muted">Compare</span>
+      </h1>
+
+      <!-- RIGHT ORB -->
+      <div class="relative flex h-12 w-12 items-center justify-center shrink-0">
+        <!-- Glow -->
+        <div
+          class="absolute h-20 w-20 rounded-full blur-3xl opacity-60"
+          style="
+		 background:
+		 radial-gradient(
+		 circle,
+		 color-mix(
+                 in oklab,
+                 var(--color-tertiary-500) 22%,
+                 transparent
+		 ),
+		 transparent 70%
+		 );
+		 "
+        ></div>
+
+        <!-- Orb -->
+        <div
+          class="relative h-8 w-8 md:h-12 md:w-12 rounded-full border border-border bg-foreground shadow-2xl shadow-foreground/20"
+        ></div>
+      </div>
+    </div>
+
+    <!-- SUBTITLE -->
+    <p
+      class="mt-12 max-w-2xl text-body-md md:text-body-lg leading-relaxed text-foreground/80"
+    >
+      A modern web platform for analyzing, comparing, and visualizing
+      high-fidelity 3D assets with precision and performance.
+    </p>
+
+    <!-- CTA -->
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="https://3dcompare.com" 
+        class="rounded-xl bg-foreground px-6 py-3 text-sm font-medium text-background transition hover:scale-[1.02] hover:opacity-90"
+      >
+        View Project
+      </a>
+
+      <a
+        href="https://github.com/elnilso"  
+        class="rounded-xl border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition hover:bg-muted"
+      >
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <ChallengeSolution
+    eyebrow="Research & Strategy"
+    title="Built from operational friction."
+    intro="The platform emerged from repeated inefficiencies in modern infrastructure workflows, where fragmented tooling and inconsistent interfaces slowed down critical engineering processes."
+    challenges={[
+	       {
+		 title: 'Fragmented Systems',
+		 description:
+		 'Teams relied on disconnected tools with inconsistent workflows and duplicated operational overhead.'
+	       },
+	       {
+		 title: 'Poor Data Visibility',
+		 description:
+		 'Infrastructure metrics lacked centralized visualization and actionable context.'
+	       }
+	       ]}
+    solutions={[
+	      {
+		title: 'Unified Interface',
+		description:
+		'A cohesive operational layer consolidates infrastructure tooling into one streamlined experience.'
+	      },
+	      {
+		title: 'Real-Time Monitoring',
+		description:
+		'Integrated telemetry pipelines provide immediate visibility into system performance and anomalies.'
+	      }
+	      ]}
+  />
+
+  <KeyFeatures
+    eyebrow="Core Features"
+    title="Designed for performance and operational clarity."
+    intro="The platform combines high-performance engineering with refined interaction design to deliver a cohesive workflow experience."
+    features={[
+	     {
+	       title: 'Real-Time Analytics',
+	       description:
+               'Streaming telemetry pipelines provide instant operational insight with minimal latency.',
+	       icon: 'ph:chart-line',
+	       meta: 'Data Infrastructure'
+	     },
+	     {
+	       title: 'Modular Architecture',
+	       description:
+               'Composable systems enable scalable feature expansion without compromising maintainability.',
+	       icon: 'ph:cube',
+	       meta: 'System Design'
+	     },
+	     {
+	       title: 'Advanced Visualization',
+	       description:
+               'Editorial-grade interfaces transform complex datasets into intuitive visual narratives.',
+	       icon: 'ph:cube-focus',
+	       meta: 'UX Engineering'
+	     },
+	     {
+	       title: 'Secure Access Control',
+	       description:
+               'Granular permissions and isolated environments ensure enterprise-grade operational security.',
+	       icon: 'ph:shield-check',
+	       meta: 'Security'
+	     },
+	     {
+	       title: 'Automated Workflows',
+	       description:
+               'Integrated orchestration pipelines reduce manual intervention and improve deployment velocity.',
+	       icon: 'ph:flow-arrow',
+	       meta: 'Automation'
+	     },
+	     {
+	       title: 'Responsive Interface',
+	       description:
+               'Adaptive layouts maintain clarity and usability across desktop, tablet, and mobile environments.',
+	       icon: 'ph:devices',
+	       meta: 'Frontend Systems'
+	     }
+	     ]}
+  />
+
+  <!-- Try it yourself CTA -->
+  <div class="flex flex-col mx-auto items-center">
+    <h2 class="text-h2 md:text-display-lg font-display text-foreground">
+      Try it yourself!
+    </h2>
+    <Icon icon="ph:caret-down" class="text-foreground m-6 w-16 md:w-24 h-16 md:h-24 animate-pulse" />
+  </div>
+
+  <!-- <ThreeDViewer /> -->
+
+  <Steps
+    steps = {[
+	    {
+	      title: "Capture a Video",
+	      description: "Record a 30-60 second video circling the object.",
+	      meta: "Equipment",
+	    } 
+	    ]}
+  />
+  
+</section>
