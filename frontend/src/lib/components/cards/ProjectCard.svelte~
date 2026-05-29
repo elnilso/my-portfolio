@@ -43,7 +43,7 @@
               transparent 60%
             );
         "
-      />
+      ></div>
 
       <!-- Image -->
       <enhanced:img
@@ -68,7 +68,7 @@
               transparent 40%
             );
         "
-      />
+      ></div>
 
       <!-- Tags -->
       <div
@@ -126,7 +126,8 @@
                transparent
                );
                "
-      />
+      ></div>
+
     </div>
   </article>
 </a>

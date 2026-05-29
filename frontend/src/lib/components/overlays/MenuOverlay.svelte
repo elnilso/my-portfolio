@@ -2,8 +2,11 @@
   import gsap from 'gsap';
   import Icon from '@iconify/svelte';
   import { page } from '$app/stores';
+  import { createEventDispatcher } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
 
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+  import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 
   type Props = {
     open: boolean;
@@ -11,25 +14,38 @@
 
   const isActive = (path: string) => $page.url.pathname === path;
   const currentYear = new Date().getFullYear();
+  const dispatch = createEventDispatcher<{ close: void }>();
 
   let { open }: Props = $props();
   let overlay: HTMLDivElement;
+
+  afterNavigate(() => {
+    gsap.to(overlay, {
+      autoAlpha: 0,
+      y: -20,
+      duration: 0.4,
+      ease: 'power3.in',
+      onComplete: () => {
+	dispatch('close');
+      }
+    });
+  });
 
   $effect(() => {
     if (!overlay) return;
     if (open) {
       gsap.to(overlay, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.5,
-        ease: 'power3.out'
+	autoAlpha: 1,
+	y: 0,
+	duration: 0.5,
+	ease: 'power3.out'
       });
     } else {
       gsap.to(overlay, {
-        autoAlpha: 0,
-        y: -20,
-        duration: 0.4,
-        ease: 'power3.in'
+	autoAlpha: 0,
+	y: -20,
+	duration: 0.4,
+	ease: 'power3.in'
       });
     }
   });
@@ -65,7 +81,7 @@
 	    >
 	    HOME
 	  </div>
-	  <div class="font-body text-xs tracking-[0.3em] opacity-60 mt-2">001</div>
+	  <div class="font-body text-label tracking-[0.3em] opacity-60 mt-2">001</div>
 	</a>
 
         <a href="/about" class="block group">
@@ -76,7 +92,7 @@
 	    >
 	    ABOUT
 	  </div>
-	  <div class="font-body text-xs tracking-[0.3em] opacity-60 mt-2">002</div>
+	  <div class="font-body text-label tracking-[0.3em] opacity-60 mt-2">002</div>
 	</a>
 
         <a href="/projects" class="block group">
@@ -87,27 +103,34 @@
 	    >
 	    PROJECTS
 	  </div>
-	  <div class="font-body text-xs tracking-[0.3em] opacity-60 mt-2">003</div>
+	  <div class="font-body text-label tracking-[0.3em] opacity-60 mt-2">003</div>
 	</a>
       </div>
+
+
     </nav>
 
     <!-- FOOTER — sits at the bottom (no flex-1 so it's auto height) -->
     <div class="flex flex-col items-center gap-8 shrink-0">
       
       <!-- Social icons -->
-      <div class="flex gap-8 items-center">
+      <div class="flex gap-10 items-center">
         <!-- Email -->
         <a href="mailto:" aria-label="Email" class="hover:opacity-60 transition-opacity duration-200">
-          <Icon icon="ph:at" class="text-2xl"/>
+          <Icon icon="ph:at" class="text-3xl"/>
         </a>
         <!-- GitHub -->
         <a href="https://github.com" aria-label="GitHub" class="hover:opacity-60 transition-opacity duration-200">
-          <Icon icon="ph:github-logo" class="text-2xl" />
+          <Icon icon="ph:github-logo" class="text-3xl" />
         </a>
       </div>
 
-      <ThemeToggle />
+      <div class="flex items-center gap-8">
+	<ThemeToggle />
+
+	<LanguageSwitcher direction="up" />
+
+      </div>
       
       <!-- Year -->
       <div class="font-body text-xs tracking-[0.3em] opacity-70">{currentYear}©</div>

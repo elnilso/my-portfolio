@@ -1,16 +1,17 @@
 <script lang="ts">
-  import SelectedProjects from '$lib/components/SelectedProjects.svelte';
-  import QuoteCard from '$lib/components/cards/QuoteCard.svelte';
-  import HomeHero from '$lib/components/HomeHero.svelte';
-  import TechStack from '$lib/components/cards/TechStack.svelte';
-  import PhilosophyCard from '$lib/components/cards/PhilosophyCard.svelte';
-  import ThanksCTA from '$lib/components/CTAs/ThanksCTA.svelte';
-  import ContactMe from '$lib/components/CTAs/ContactMe.svelte';
+ import SelectedProjects from '$lib/components/lists/SelectedProjects.svelte';
+ import QuoteCard from '$lib/components/cards/QuoteCard.svelte';
+ import HomeHero from '$lib/components/HomeHero.svelte';
+ import TechStack from '$lib/components/cards/TechStack.svelte';
+ import PhilosophyCard from '$lib/components/cards/PhilosophyCard.svelte';
+ import ThanksCTA from '$lib/components/CTAs/ThanksCTA.svelte';
+ import ContactMe from '$lib/components/CTAs/ContactMe.svelte';
 
-  import SphinxModel from '$lib/assets/SphinxModel.png';
+ import { animate } from '$lib/actions/animate';
+
 </script>
 
-<section class="overflow-x-hidden">
+<section>
   
   <!-- HERO -->
   <HomeHero />
@@ -19,18 +20,89 @@
   <SelectedProjects />
 
   <!-- QUOTE -->
-  <QuoteCard />
+  <div
+    use:animate={{
+		type: 'from',
+		duration: 1,
+		yPercent: 50,
+		opacity: 0,
+		ease: 'power4.out',
+		scrollTrigger: {
+		  start: 'top 100%',
+		  toggleActions: 'play none none none'
+		}
+		}}
+  >
+    <QuoteCard />
+  </div>		  
+
 
   <!-- TECH STACK -->
-  <TechStack />
-
+  <div
+    use:animate={{
+		type: 'from',
+		duration: 1,
+		yPercent: 50,
+		opacity: 0,
+		ease: 'power4.out',
+		scrollTrigger: {
+		  start: 'top 100%',
+		  toggleActions: 'play none none none'
+		}
+		}}
+  >
+    <TechStack />
+  </div>
+  
   <!-- PHILOSOPHY -->
-  <PhilosophyCard />
+  <div
+    use:animate={{
+		type: 'from',
+		duration: 1,
+		yPercent: 50,
+		opacity: 0,
+		ease: 'power4.out',
+		scrollTrigger: {
+		  start: 'top 100%',
+		  toggleActions: 'play none none none'
+		}
+		}}
+  >
+    <PhilosophyCard />
+  </div>
 
   <!-- THANK YOU -->
-  <ThanksCTA />
+  <div
+    use:animate={{
+		type: 'from',
+		duration: 1,
+		yPercent: 50,
+		opacity: 0,
+		ease: 'power4.out',
+		scrollTrigger: {
+		  start: 'top 100%',
+		  toggleActions: 'play none none none'
+		}
+		}}
+  >
+    <ThanksCTA />
+  </div>
 
   <!-- CONTACT ME -->
-  <ContactMe />
+  <div
+    use:animate={{
+		type: 'from',
+		duration: 1,
+		yPercent: 50,
+		opacity: 0,
+		ease: 'power4.out',
+		scrollTrigger: {
+		  start: 'top 100%',
+		  toggleActions: 'play none none none'
+		}
+		}}
+  >
+    <ContactMe />
+  </div>
   
 </section>

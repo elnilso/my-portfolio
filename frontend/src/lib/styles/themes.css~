@@ -1,12 +1,101 @@
 [data-theme='light'] {
-  --body-background-color: var(--color-surface-500);
-  --body-text-color: var(--color-primary-500);
+
+  /* PAGE */
+
+  --background: var(--color-surface-500);
+  --foreground: var(--color-primary-500);
+
+  /* OVERLAYS */
+
+  --overlay: var(--color-primary-500);
+  --overlay-foreground: var(--color-surface-500);
+
+  /* CARDS */
+
+  --card: var(--color-surface-400);
+  --card-foreground: var(--color-primary-500);
+
+  /* MUTED */
+
+  --muted: var(--color-secondary-500);
+
+  /* BORDERS */
+
+  --border: color-mix(
+    in oklab,
+    var(--color-primary-500) 15%,
+    transparent
+  );
 }
 
 [data-theme='dark'] {
 
-  /* invert your core palette */
+  /* PAGE */
 
-  --body-background-color: var(--color-primary-500);
-  --body-text-color: var(--color-surface-500);
+  --background: var(--color-primary-500);
+  --foreground: var(--color-surface-500);
+
+  /* OVERLAYS */
+
+  --overlay: var(--color-surface-500);
+  --overlay-foreground: var(--color-primary-500);
+
+  /* CARDS */
+
+  --card: var(--color-primary-400);
+  --card-foreground: var(--color-surface-500);
+
+  /* MUTED */
+
+  --muted: var(--color-secondary-400);
+
+  /* BORDERS */
+
+  --border: color-mix(
+    in oklab,
+    var(--color-surface-500) 15%,
+    transparent
+  );
+}
+
+/* =========================================================
+   HEADER — LIGHT
+   ========================================================= */
+
+header[data-theme='light'] {
+  --header-background: var(--color-surface-500);
+  --header-foreground: var(--color-primary-500);
+
+  --header-muted: color-mix(
+    in oklab,
+    var(--color-primary-500) 65%,
+    transparent
+  );
+
+  --header-border: color-mix(
+    in oklab,
+    var(--color-primary-500) 15%,
+    transparent
+  );
+}
+
+/* =========================================================
+   HEADER — DARK
+   ========================================================= */
+
+header[data-theme='dark'] {
+  --header-background: var(--color-primary-500);
+  --header-foreground: var(--color-surface-500);
+
+  --header-muted: color-mix(
+    in oklab,
+    var(--color-surface-500) 65%,
+    transparent
+  );
+
+  --header-border: color-mix(
+    in oklab,
+    var(--color-surface-500) 15%,
+    transparent
+  );
 }

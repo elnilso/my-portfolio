@@ -18,16 +18,44 @@
   flex
   h-12
   w-24
-  items-center
-  rounded-full
   border
   border-surface-500/20
-  bg-foreground/10
+  items-center
+  rounded-full
   backdrop-blur-md
   transition-all
   duration-300
-  hover:bg-foreground/15
+  hover:scale-[1.01]
   "
+  style="
+  background:
+  color-mix(
+  in oklab,
+  var(--header-foreground, var(--foreground)) 10%,
+  transparent
+  );
+
+  transition:
+  background var(--duration-normal) var(--ease-standard),
+  border-color var(--duration-normal) var(--ease-standard),
+  transform var(--duration-fast) var(--ease-standard);
+  "
+  onmouseenter={(e) => {
+  e.currentTarget.style.background =
+  `color-mix(
+  in oklab,
+  var(--header-foreground, var(--foreground)) 15%,
+  transparent
+  )`;
+  }}
+  onmouseleave={(e) => {
+  e.currentTarget.style.background =
+  `color-mix(
+  in oklab,
+  var(--header-foreground, var(--foreground)) 10%,
+  transparent
+  )`;
+  }}
   >
   <!-- Track Icons -->
   <div
@@ -38,52 +66,58 @@
 	   items-center
 	   justify-between
 	   px-4
-	   text-foreground
 	   "
-    >
-    <Icon
-      icon="ph:sun"
-      class="
-	     text-lg
-	     transition-opacity
-	     duration-300
-	     {isDark ? 'opacity-40' : 'opacity-100'}
-	     "
-      />
+    style="
+	   color:
+           var(
+           --header-foreground,
+           var(--foreground)
+           );
+	   "
+	   >
+	   <Icon
+	     icon="ph:sun"
+	     class="
+		    text-lg
+		    transition-opacity
+		    duration-300
+		    {isDark ? 'opacity-40' : 'opacity-100'}
+		    "
+	     />
 
-    <Icon
-      icon="ph:moon"
-      class="
-	     text-lg
-	     transition-opacity
-	     duration-300
-	     {isDark ? 'opacity-100' : 'opacity-40'}
-	     "
-      />
-  </div>
+	   <Icon
+	     icon="ph:moon"
+	     class="
+		    text-lg
+		    transition-opacity
+		    duration-300
+		    {isDark ? 'opacity-100' : 'opacity-40'}
+		    "
+	     />
+</div>
 
-  <!-- Sliding Knob -->
-  <div
-    class={`
-    absolute
-    left-1
-    flex
-    h-10
-    w-10
-    items-center
-    justify-center
-    rounded-full
-    bg-surface-500
-    text-primary-500
-    shadow-lg
-    transition-all
-    duration-300
-    ${isDark ? 'translate-x-12' : 'translate-x-0'}
-    `}
-    >
-    <Icon
-      icon={isDark ? "ph:moon" : "ph:sun"}
-      class="text-xl"
-      />
-  </div>
+<!-- Sliding Knob -->
+<div
+  class={`
+  absolute
+  left-1
+  flex
+  h-10
+  w-10
+  items-center
+  justify-center
+  rounded-full
+  shadow-lg
+  transition-all
+  duration-300
+  ${isDark ? 'translate-x-12' : 'translate-x-0'}
+  bg-background
+  text-foreground
+  `}
+  >
+  <Icon
+    icon={isDark ? 'ph:moon' : 'ph:sun'}
+    class="text-xl"
+    />
+</div>
 </button>

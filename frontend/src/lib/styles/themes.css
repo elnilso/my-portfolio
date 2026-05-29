@@ -5,6 +5,9 @@
   --background: var(--color-surface-500);
   --foreground: var(--color-primary-500);
 
+  --header-background: var(--background);
+  --header-foreground: var(--foreground);
+
   /* OVERLAYS */
 
   --overlay: var(--color-primary-500);
@@ -35,6 +38,9 @@
   --background: var(--color-primary-500);
   --foreground: var(--color-surface-500);
 
+  --header-background: var(--background);
+  --header-foreground: var(--foreground);
+
   /* OVERLAYS */
 
   --overlay: var(--color-surface-500);
@@ -52,6 +58,48 @@
   /* BORDERS */
 
   --border: color-mix(
+    in oklab,
+    var(--color-surface-500) 15%,
+    transparent
+  );
+}
+
+/* =========================================================
+   HEADER — LIGHT
+   ========================================================= */
+
+header[data-theme='light'] {
+  --header-background: var(--background);
+  --header-foreground: var(--foreground);
+
+  --header-muted: color-mix(
+    in oklab,
+    var(--color-primary-500) 65%,
+    transparent
+  );
+
+  --header-border: color-mix(
+    in oklab,
+    var(--color-primary-500) 15%,
+    transparent
+  );
+}
+
+/* =========================================================
+   HEADER — DARK
+   ========================================================= */
+
+header[data-theme='dark'] {
+  --header-background: var(--background);
+  --header-foreground: var(--foreground);
+
+  --header-muted: color-mix(
+    in oklab,
+    var(--color-surface-500) 65%,
+    transparent
+  );
+
+  --header-border: color-mix(
     in oklab,
     var(--color-surface-500) 15%,
     transparent

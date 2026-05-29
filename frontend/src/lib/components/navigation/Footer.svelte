@@ -1,6 +1,8 @@
 <script lang="ts">
   import Icon from '@iconify/svelte';
 
+  import * as m from '$paraglide/messages.js';
+
   const currentYear = new Date().getFullYear();
 </script>
 
@@ -68,7 +70,7 @@
         </a>
 
         <p class="mt-5 text-body-small leading-relaxed text-foreground/70">
-          Design with functionality.
+          {m.motto()}
         </p>
 
         <!-- Accent Line -->
@@ -88,7 +90,7 @@
       <!-- Links -->
       <nav aria-label="Footer Navigation">
         <p class="text-h2 text-foreground">
-          Links
+          {m.footer_header1()}
         </p>
 
         <ul class="mt-6 space-y-4">
@@ -100,7 +102,7 @@
               <span
                 class="h-1.5 w-1.5 rounded-full bg-[var(--color-tertiary-500)] transition-transform duration-300 group-hover:scale-125"
 		></span>
-              About me
+              {m.link2()}
             </a>
           </li>
           <li>
@@ -111,7 +113,7 @@
               <span
                 class="h-1.5 w-1.5 rounded-full bg-[var(--color-secondary-500)] transition-transform duration-300 group-hover:scale-125"
 		></span>
-              Projects
+              {m.link3()}
             </a>
           </li>
         </ul>
@@ -120,7 +122,7 @@
       <!-- Legal -->
       <nav aria-label="Legal Navigation">
         <p class="text-h2 text-foreground">
-          Legal
+          {m.footer_header2()}
         </p>
 
         <ul class="mt-6 space-y-4">
@@ -132,7 +134,7 @@
               <span
                 class="h-1.5 w-1.5 rounded-full bg-[var(--color-secondary-500)] transition-transform duration-300 group-hover:scale-125"
 		></span>
-              Imprint
+              {m.link4()}
             </a>
           </li>
 
@@ -144,7 +146,7 @@
               <span
                 class="h-1.5 w-1.5 rounded-full bg-[var(--color-tertiary-500)] transition-transform duration-300 group-hover:scale-125"
 		></span>
-              Data policy
+              {m.link5()}
             </a>
           </li>
         </ul>

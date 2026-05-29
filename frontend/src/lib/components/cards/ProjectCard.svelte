@@ -90,7 +90,7 @@
     >
       <div class="min-w-0">
         <h3
-          class="truncate text-h3 text-foreground"
+          class="truncate py-4 text-h3 text-foreground"
         >
           {title}
         </h3>

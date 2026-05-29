@@ -85,7 +85,7 @@
       w-2
       h-2
       rounded-full
-      bg-foreground
+      bg-[var(--header-foreground)]
       -translate-x-1/2
     "
   ></div>
@@ -96,7 +96,7 @@
       relative
       z-10
       text-body-md
-      text-foreground
+      text-[var(--header-foreground)]
       tracking-[0.3em]
       uppercase
     "
@@ -115,7 +115,7 @@
       w-2
       h-2
       rounded-full
-      bg-foreground
+      bg-[var(--header-foreground)]
       -translate-x-1/2
     "
   ></div>
